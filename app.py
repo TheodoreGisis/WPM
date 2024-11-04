@@ -2,7 +2,7 @@ import curses
 import time
 
 # Sentence for typing test
-sentence = "The quick brown fox jumps over the lazy dog."
+sentence = "The quick brown fox jumps over the lazy dog"
 
 def typing_test(screen):
     # Initialize curses colors
@@ -24,11 +24,12 @@ def typing_test(screen):
         char = screen.getch()
 
         # Handle backspace (127 and 8 are common backspace key codes)
-        if char in (127, 8) and cursor_position > 0:
-            cursor_position -= 1
-            user_input = user_input[:-1]
-            screen.addstr(3, 12 + cursor_position, " ")  # Clear last character
-            screen.refresh()
+        if char in (curses.KEY_BACKSPACE, 127, 8):
+            if cursor_position > 0:
+                cursor_position -= 1
+                user_input = user_input[:-1]
+                screen.addstr(3, 12 + cursor_position, " ")  # Clear last character
+                screen.refresh()
 
         # Handle ENTER key to reset typing if not complete
         elif char == 10:  # Enter key
