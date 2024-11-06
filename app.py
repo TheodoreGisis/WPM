@@ -96,8 +96,4 @@ class TypingTestApp:
 if __name__ == "__main__":
     root = tk.Tk()
     app = TypingTestApp(root)
-<<<<<<< HEAD
     root.mainloop()
-=======
-    root.mainloop()
->>>>>>> 1e73e578d1eb66320775554ea20360c605ff840e
